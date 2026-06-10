@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Código de verificación</title>
+</head>
+<body style="margin:0;padding:0;background-color:#e3f2fd;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#e3f2fd;padding:32px 16px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" style="max-width:480px;background-color:#ffffff;border-radius:16px;box-shadow:0 4px 24px rgba(21,101,192,0.10);overflow:hidden;">
+          <tr>
+            <td style="background:linear-gradient(135deg,#1565C0,#1976D2);padding:32px 24px 20px;text-align:center;">
+              <div style="width:56px;height:56px;background:rgba(255,255,255,0.15);border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:28px;">🔐</span>
+              </div>
+              <h1 style="margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:-0.3px;">Código de verificación</h1>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:32px 24px 24px;">
+              <p style="margin:0 0 6px;color:#1c1b1f;font-size:16px;font-weight:600;">Hola {{ user.nombres }},</p>
+              <p style="margin:0 0 20px;color:#49454f;font-size:15px;line-height:1.5;">
+                Has solicitado un código {{ purpose_text }}. Úsalo dentro de los próximos <strong style="color:#1c1b1f;">5 minutos</strong>.
+              </p>
+
+              <div style="background:#e3f2fd;border:2px dashed #90caf9;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;">
+                <p style="margin:0 0 6px;color:#49454f;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Tu código</p>
+                <p style="margin:0;font-size:36px;font-weight:800;color:#1565C0;letter-spacing:8px;font-family:monospace;">{{ code }}</p>
+              </div>
+
+              <p style="margin:0 0 0;color:#8a8591;font-size:13px;line-height:1.5;">
+                Si no solicitaste este código, puedes ignorar este mensaje.<br/>
+                Por motivos de seguridad, no compartas este código con nadie.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="background:#e8eaf6;padding:16px 24px;text-align:center;border-top:1px solid #c5cae9;">
+              <p style="margin:0;color:#8a8591;font-size:12px;">
+                &copy; 2026 EVA Authentication &mdash; Todos los derechos reservados.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

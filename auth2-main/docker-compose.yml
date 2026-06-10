@@ -1,0 +1,46 @@
+services:
+  oauth2-api:
+    build: .
+    image: oauth2-api
+    container_name: oauth2-api-container
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: oauth2_db
+      DB_USER: oauth2_user
+      DB_PASSWORD: oauth2_password
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  mysql:
+    image: mysql:8.4
+    container_name: oauth2-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: oauth2_db
+      MYSQL_USER: oauth2_user
+      MYSQL_PASSWORD: oauth2_password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - oauth2_mysql_data:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-prootpassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  oauth2_mysql_data:
